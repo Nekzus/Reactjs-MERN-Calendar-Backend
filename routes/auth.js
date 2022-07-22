@@ -6,6 +6,7 @@ host + /api/auth
 const { Router } = require("express");
 const { check } = require("express-validator");
 const { fieldsValidator } = require("../middlewares/fields-validator");
+const { jwtValidator } = require("../middlewares/jwt-validator");
 
 const router = Router();
 const {
@@ -40,6 +41,6 @@ router.post(
   loginUsuario
 );
 
-router.get("/renew", revalidarToken);
+router.get("/renew", jwtValidator, revalidarToken);
 
 module.exports = router;

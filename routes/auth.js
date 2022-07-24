@@ -8,12 +8,12 @@ const { check } = require("express-validator");
 const { fieldsValidator } = require("../middlewares/fields-validator");
 const { jwtValidator } = require("../middlewares/jwt-validator");
 
-const router = Router();
 const {
   crearUsuario,
   loginUsuario,
   revalidarToken,
 } = require("../controllers/auth");
+const router = Router();
 
 router.post(
   "/new",
